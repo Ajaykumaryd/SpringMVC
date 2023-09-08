@@ -1,6 +1,8 @@
-package com.SmartCardContactManager.Controller;
+package com.SpringMvc.Controller;
 
 
+import com.SpringMvc.Entities.User;
+import lombok.Data;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@Data
 public class HomeController {
 
     @RequestMapping("/home")
@@ -42,13 +45,16 @@ public class HomeController {
                              @RequestParam("password")String password,Model model)
 
     {
-        System.out.println("userEmail "+email);
-        System.out.println("userName "+email);
-        System.out.println("password "+password);
+      User user=new User();
+//      user.set(email);
 
-        model.addAttribute("email",email);
-        model.addAttribute("name",name);
-        model.addAttribute("password",password);
+        user.set(email);
+        user.set(name);
+        user.set(password);
+
+        System.out.println(user);
+
+        model.addAttribute("user",user);
 
         return "Success";
     }
