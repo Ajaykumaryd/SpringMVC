@@ -1,14 +1,12 @@
 package com.SpringMvc.Controller;
 
 
+//import com.SpringMvc.Entities.User;
 import com.SpringMvc.Entities.User;
 import lombok.Data;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @Data
@@ -39,24 +37,29 @@ public class HomeController {
 
 
 
+//    @RequestMapping(path = "/action",method = RequestMethod.POST)
+//    public String handleForm(@RequestParam("email")String email,
+//                             @RequestParam("name")String name,
+//                             @RequestParam("password")String password,Model model)
+//
+//    {
+//      User user=new User();
+////      user.set(email);
+//        user.setEmail(email);
+//        user.setName(name);
+//        user.setPassword(password);
+//
+//        System.out.println(user);
+//
+//        model.addAttribute("user",user);
+//
+//        return "Success";
+//    }
+
+
     @RequestMapping(path = "/action",method = RequestMethod.POST)
-    public String handleForm(@RequestParam("email")String email,
-                             @RequestParam("name")String name,
-                             @RequestParam("password")String password,Model model)
-
-    {
-      User user=new User();
-//      user.set(email);
-
-        user.set(email);
-        user.set(name);
-        user.set(password);
-
-        System.out.println(user);
-
-        model.addAttribute("user",user);
-
-        return "Success";
+    public String handelForm(@ModelAttribute User user, Model model){
+    return "Success";
     }
 
 
